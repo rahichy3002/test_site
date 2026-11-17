@@ -132,6 +132,9 @@ class ProgsityMockHandler(http.server.SimpleHTTPRequestHandler):
         elif exec_res.get("tle"):
             status = "Time Limit Exceeded"
             passed = False
+        elif exec_res.get("returncode", 0) != 0:
+            status = "Runtime Error"
+            passed = False
         else:
             status = "Passed" if passed is True else ("Failed" if passed is False else "Finished")
 
