@@ -1,0 +1,29 @@
+{
+  "id": 3,
+  "title": "Balanced Subarray Sum",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "3 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "python",
+  "designated_language_name": "Python 3 (Python 3.12)",
+  "statement": "<p>Given an array of integers, find the length of the longest contiguous subarray such that the sum of its elements is equal to the number of elements in that subarray. For example, in <code>[2, 2]</code>, the sum is 4 and length is 2 (not equal). But in <code>[1, 1, 1]</code> sum is 3 and length is 3 (equal).</p>",
+  "input_format": "The first line contains an integer N (1 <= N <= 10^5). The second line contains N integers A[1], A[2], ..., A[N].",
+  "output_format": "Output a single integer representing the maximum length of such a subarray. If none exists, output 0.",
+  "constraints": "1 <= N <= 10^5\n-10^9 <= A[i] <= 10^9",
+  "sample_input": "5\n1 2 3 2 2",
+  "sample_output": "1",
+  "hidden_tests": [
+    {
+      "input": "1\n1",
+      "expected_output": "1"
+    },
+    {
+      "input": "6\n2 0 2 0 1 1",
+      "expected_output": "6"
+    }
+  ],
+  "templates": {
+    "python": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    # Write your solution here\n\nif __name__ == '__main__':\n    main()\n"
+  }
+}

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.git/
+.gitignore
+run_testing_site.bat
+test_generator.py

@@ -1,0 +1,5 @@
+{
+  "base_url": "https://headed-navy-sunrise-benjamin.trycloudflare.com/v1",
+  "model": "qwen2.5-coder:14b",
+  "api_key": "ollama"
+}

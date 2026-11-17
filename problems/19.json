@@ -1,0 +1,29 @@
+{
+  "id": 19,
+  "title": "Task Scheduler with Cooldown",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "19 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "cpp",
+  "designated_language_name": "C++ (C++20)",
+  "statement": "<p>Given an array of CPU tasks represented by uppercase letters (e.g. <code>A B C</code>) and a non-negative integer cooldown <code>N</code>. Between two identical tasks, there must be at least <code>N</code> intervals of cooling. Return the least number of intervals the CPU will take to finish all tasks.</p>",
+  "input_format": "First line: string of task characters separated by spaces. Second line: cooldown integer N.",
+  "output_format": "Output a single integer representing minimum total intervals.",
+  "constraints": "1 <= tasks <= 1000\n0 <= N <= 100",
+  "sample_input": "A A A B B B\n2",
+  "sample_output": "8",
+  "hidden_tests": [
+    {
+      "input": "A A A B B B\n0",
+      "expected_output": "6"
+    },
+    {
+      "input": "A B C D E\n3",
+      "expected_output": "5"
+    }
+  ],
+  "templates": {
+    "cpp": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\n\nint main() {\n    // Task scheduler\n    return 0;\n}\n"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": 5,
+  "title": "Hexadecimal Byte Aligner",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "5 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "c",
+  "designated_language_name": "C (C17)",
+  "statement": "<p>Given an array of 32-bit unsigned integers, pack each integer into big-endian byte order and output each byte as an uppercase 2-digit hexadecimal number separated by spaces. If the number of bytes is not a multiple of 4, pad with zeros.</p>",
+  "input_format": "The first line contains an integer N. The next line contains N unsigned 32-bit integers.",
+  "output_format": "Print each byte in big-endian order as uppercase 2-digit hex (e.g. 0A 1B FF) separated by spaces.",
+  "constraints": "1 <= N <= 100\n0 <= A[i] <= 4294967295",
+  "sample_input": "2\n305419896 1",
+  "sample_output": "12 34 56 78 00 00 00 01",
+  "hidden_tests": [
+    {
+      "input": "1\n0",
+      "expected_output": "00 00 00 00"
+    },
+    {
+      "input": "3\n255 65535 16777215",
+      "expected_output": "00 00 00 FF 00 00 FF FF 00 FF FF FF"
+    }
+  ],
+  "templates": {
+    "c": "#include <stdio.h>\n#include <stdint.h>\n\nint main() {\n    // Write your C solution here\n    return 0;\n}\n"
+  }
+}

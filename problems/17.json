@@ -1,0 +1,29 @@
+{
+  "id": 17,
+  "title": "Nested Dictionary Key Query",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "17 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "javascript",
+  "designated_language_name": "JavaScript (Node.js 20)",
+  "statement": "<p>Given a single-line JSON string representing nested objects and a dot-separated query path (e.g. <code>user.address.city</code>), retrieve the value at that path. If any key in the path does not exist, print <code>UNDEFINED</code>.</p>",
+  "input_format": "Line 1: A JSON string. Line 2: The query path.",
+  "output_format": "Print the retrieved value (as a primitive or JSON string), or UNDEFINED if not found.",
+  "constraints": "JSON string <= 5000 chars.",
+  "sample_input": "{\"user\":{\"name\":\"Alice\",\"address\":{\"city\":\"Tokyo\",\"zip\":100}}}\nuser.address.city",
+  "sample_output": "Tokyo",
+  "hidden_tests": [
+    {
+      "input": "{\"a\":{\"b\":[10,20]}}\na.b",
+      "expected_output": "[10,20]"
+    },
+    {
+      "input": "{\"x\":1}\nx.y.z",
+      "expected_output": "UNDEFINED"
+    }
+  ],
+  "templates": {
+    "javascript": "function main() {\n    // Parse JSON and resolve dot path\n}\nmain();\n"
+  }
+}

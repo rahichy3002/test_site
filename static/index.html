@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST Lab Exam - Progsity</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- CodeMirror for full editor experience with syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+</head>
+<body class="progsity-dark">
+
+  <!-- Dynamic Watermark Overlay for Stress-Testing OCR -->
+  <div id="watermarkOverlay" class="watermark-overlay"></div>
+
+  <!-- Top Navbar -->
+  <header class="top-navbar">
+    <div class="nav-left">
+      <span class="exam-title" id="examTitle">TEST Lab Exam</span>
+    </div>
+    <div class="nav-right">
+      <div class="problem-pager">
+        <button id="btnPrevTop" class="pager-arrow" title="Previous Question">&lt;</button>
+        <span id="problemIndex">1 / 20</span>
+        <button id="btnNextTop" class="pager-arrow" title="Next Question">&gt;</button>
+      </div>
+      <div class="status-saved">
+        <span class="saved-dot"></span>
+        <span class="saved-text">Saved</span>
+      </div>
+      <button class="btn-ask" title="Ask Support / Clarification">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span>Ask</span>
+      </button>
+      <!-- Stealth Audit Toggle for Testing TypeWriter -->
+      <button class="btn-audit" id="btnAuditToggle" title="Open Proctoring & Stealth Audit Console">
+        🛡️ Proctor Audit
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Split Layout -->
+  <main class="exam-container">
+    
+    <!-- Left Pane: Problem Details -->
+    <section class="problem-pane">
+      <div class="meta-specs">
+        <span id="metaLimits">Time limit: 2s · Memory limit: 256 MB</span>
+      </div>
+
+      <div class="problem-body" id="problemStatement">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="section-block">
+        <h3 class="section-title">INPUT FORMAT</h3>
+        <div class="section-content" id="inputFormat"></div>
+      </div>
+
+      <div class="section-block">
+        <h3 class="section-title">OUTPUT FORMAT</h3>
+        <div class="section-content" id="outputFormat"></div>
+      </div>
+
+      <div class="section-block">
+        <h3 class="section-title">CONSTRAINTS</h3>
+        <div class="section-content" id="constraints"></div>
+      </div>
+
+      <!-- Side-by-side Sample Container (Matches OCR Layout) -->
+      <div class="sample-wrapper">
+        <div class="sample-header-row">
+          <div class="sample-header-col">SAMPLE INPUT 1</div>
+          <div class="sample-header-col">SAMPLE OUTPUT 1</div>
+        </div>
+        <div class="sample-box-grid">
+          <pre class="sample-code-col" id="sampleInputPre"></pre>
+          <pre class="sample-code-col" id="sampleOutputPre"></pre>
+        </div>
+      </div>
+
+      <div class="problem-footer-nav">
+        <button id="btnPrevProblem" class="btn-nav btn-outline">&lt; Previous</button>
+        <button id="btnNextProblem" class="btn-nav btn-orange">Next &gt;</button>
+      </div>
+    </section>
+
+    <!-- Right Pane: Code Editor & Execution -->
+    <section class="editor-pane">
+      <div class="editor-top-bar">
+        <div class="lang-controls">
+          <div class="custom-dropdown">
+            <select id="langSelect">
+              <option value="cpp" selected>C++</option>
+              <option value="python">Python 3</option>
+              <option value="javascript">JavaScript</option>
+              <option value="c">C</option>
+              <option value="java">Java</option>
+            </select>
+          </div>
+          <div class="custom-dropdown">
+            <select id="verSelect">
+              <option value="cpp20" selected>C++20</option>
+              <option value="py312">Python 3.12</option>
+              <option value="node20">Node.js 20</option>
+            </select>
+          </div>
+          <span id="langLockPill" class="lock-pill" style="display: none;">🔒 Locked Mode</span>
+        </div>
+
+        <div class="proctoring-status" title="Active Proctoring / Camera Recording">
+          <span class="proctor-circle">
+            <span class="pause-bar"></span>
+            <span class="pause-bar"></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Code Area with Line Numbers -->
+      <div class="editor-workspace" id="editorContainer">
+        <textarea id="codeEditor"></textarea>
+      </div>
+
+      <!-- Bottom Action Bar -->
+      <footer class="editor-bottom-bar">
+        <div class="bar-left">
+          <button class="btn-action" id="btnRunSamples">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Run against samples</span>
+          </button>
+          <button class="btn-action" id="btnCustomInput">
+            <span>&gt; Custom input</span>
+          </button>
+        </div>
+        <div class="bar-right">
+          <span class="submissions-count" id="subCount">0 of 5 submissions used</span>
+          <button class="btn-submit" id="btnSubmit">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span id="btnSubmitText">Submit for grading (5 left)</span>
+          </button>
+        </div>
+      </footer>
+
+      <!-- Custom Input Drawer (Collapsible) -->
+      <div class="drawer-panel" id="customInputDrawer" style="display: none;">
+        <div class="drawer-header">
+          <span>Custom Standard Input (stdin)</span>
+          <button class="btn-close-drawer" id="btnCloseCustomInput">&times;</button>
+        </div>
+        <textarea id="customInputText" placeholder="Enter standard input testcase here..."></textarea>
+      </div>
+
+      <!-- Test Execution Results Drawer -->
+      <div class="drawer-panel" id="resultsDrawer" style="display: none;">
+        <div class="drawer-header">
+          <div class="result-status-badge" id="resultStatus">Running...</div>
+          <button class="btn-close-drawer" id="btnCloseResults">&times;</button>
+        </div>
+        <div class="drawer-body" id="resultContent"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Floating Proctoring, Watermarking & Stealth Audit Dashboard -->
+  <aside class="audit-drawer" id="auditDrawer" style="display: none;">
+    <div class="audit-header">
+      <h3>🛡️ Proctoring & Stealth Audit Console</h3>
+      <button class="btn-close-audit" id="btnCloseAudit">&times;</button>
+    </div>
+    <div class="audit-body">
+
+      <!-- Section: Watermarking Simulator -->
+      <div class="audit-section">
+        <h4>🌊 Progsity Watermark Simulator</h4>
+        <label class="toggle-row">
+          <input type="checkbox" id="chkWatermark" checked>
+          <span><strong>Enable Screen Watermark</strong></span>
+        </label>
+        
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Intensity / Opacity:</span>
+            <span id="valWatermarkIntensity" class="slider-val">12%</span>
+          </div>
+          <input type="range" id="rngWatermarkIntensity" min="2" max="45" value="12" step="1">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Density / Spacing:</span>
+            <span id="valWatermarkDensity" class="slider-val">180px</span>
+          </div>
+          <input type="range" id="rngWatermarkDensity" min="80" max="320" value="180" step="10">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Tilt Angle:</span>
+            <span id="valWatermarkAngle" class="slider-val">-30°</span>
+          </div>
+          <input type="range" id="rngWatermarkAngle" min="-60" max="0" value="-30" step="5">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Watermark Text:</span>
+          </div>
+          <input type="text" id="txtWatermark" class="text-input" value="STUDENT: CANDIDATE_001 · IP: 127.0.0.1 · PROGSITY LAB EXAM">
+        </div>
+      </div>
+
+      <!-- Section: Anti-Cheat Toggles -->
+      <div class="audit-section">
+        <h4>Anti-Cheat Security Rules (Testing Toggles)</h4>
+        <label class="toggle-row">
+          <input type="checkbox" id="chkEnforceFullscreen">
+          <span>Enforce Fullscreen Mode (Strict Exam)</span>
+        </label>
+        <label class="toggle-row">
+          <input type="checkbox" id="chkBlockPaste" checked>
+          <span>Block Clipboard Paste (`paste`, `ctrl+v`)</span>
+        </label>
+        <label class="toggle-row">
+          <input type="checkbox" id="chkBlockRightClick" checked>
+          <span>Block Context Menu / Right-click</span>
+        </label>
+        <label class="toggle-row">
+          <input type="checkbox" id="chkTrackTabSwitch" checked>
+          <span>Log Tab Switches (`blur`, `visibilitychange`)</span>
+        </label>
+      </div>
+
+      <!-- Section: Violation Counters -->
+      <div class="audit-section">
+        <h4>Live Proctoring Violations Log</h4>
+        <div class="violation-stats">
+          <div class="stat-card">
+            <span class="stat-num" id="statTabSwitches">0</span>
+            <span class="stat-label">Tab Switches</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="statFullscreenExits">0</span>
+            <span class="stat-label">Fullscreen Exits</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="statPasteBlocked">0</span>
+            <span class="stat-label">Paste Blocked</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: TypeWriter Stealth Audit -->
+      <div class="audit-section">
+        <h4>TypeWriter Keystroke Stealth Verification</h4>
+        <div class="keystroke-stats">
+          <div>Trusted Keydown Events: <strong id="statTrustedKeys" class="badge-green">0</strong></div>
+          <div>Synthetic Events (`isTrusted=false`): <strong id="statUntrustedKeys" class="badge-red">0</strong></div>
+          <div>Typing Rate: <span id="statWpm">0</span> WPM</div>
+          <div>Avg Key Interval: <span id="statKeyInterval">0</span> ms</div>
+        </div>
+        <div class="audit-event-log" id="auditEventLog"></div>
+      </div>
+    </div>
+  </aside>
+
+
+
+  <!-- Violation Alert Toast -->
+  <div class="violation-toast" id="violationToast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

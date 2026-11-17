@@ -1,0 +1,29 @@
+{
+  "id": 13,
+  "title": "Bitmask Subsets XOR Sum",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "13 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "c",
+  "designated_language_name": "C (C17)",
+  "statement": "<p>Given an array of <code>N</code> integers, find the sum of all XOR totals for every subset of the array. The XOR total of a subset is the bitwise XOR of all its elements (empty subset has XOR total 0).</p>",
+  "input_format": "First line: N. Second line: N space-separated integers.",
+  "output_format": "Output a single integer, the total sum of subset XOR values.",
+  "constraints": "1 <= N <= 12\n0 <= A[i] <= 1000",
+  "sample_input": "3\n5 1 6",
+  "sample_output": "28",
+  "hidden_tests": [
+    {
+      "input": "1\n3",
+      "expected_output": "3"
+    },
+    {
+      "input": "2\n3 4",
+      "expected_output": "14"
+    }
+  ],
+  "templates": {
+    "c": "#include <stdio.h>\n\nint main() {\n    // Calculate subset XOR sum\n    return 0;\n}\n"
+  }
+}

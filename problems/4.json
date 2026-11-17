@@ -1,0 +1,29 @@
+{
+  "id": 4,
+  "title": "Log Severity Aggregator",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "4 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "javascript",
+  "designated_language_name": "JavaScript (Node.js 20)",
+  "statement": "<p>A cloud server generates structured log lines in the format: <code>[TIMESTAMP] [SEVERITY] MESSAGE</code>. Severity levels are <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>, and <code>FATAL</code>.</p><p>Parse the logs and output the total count for each severity level in the exact format: <code>INFO: X, WARN: Y, ERROR: Z, FATAL: W</code>.</p>",
+  "input_format": "The first line contains an integer N. The next N lines each contain a log line.",
+  "output_format": "Output a single line: INFO: X, WARN: Y, ERROR: Z, FATAL: W",
+  "constraints": "1 <= N <= 1000",
+  "sample_input": "4\n[2026-11-17 10:00:01] [INFO] Server started\n[2026-11-17 10:00:02] [WARN] Memory high\n[2026-11-17 10:00:03] [ERROR] Connection timeout\n[2026-11-17 10:00:04] [INFO] Client disconnected",
+  "sample_output": "INFO: 2, WARN: 1, ERROR: 1, FATAL: 0",
+  "hidden_tests": [
+    {
+      "input": "2\n[10:00] [FATAL] System crash\n[10:01] [FATAL] Rebooting",
+      "expected_output": "INFO: 0, WARN: 0, ERROR: 0, FATAL: 2"
+    },
+    {
+      "input": "1\n[00:00] [WARN] Test",
+      "expected_output": "INFO: 0, WARN: 1, ERROR: 0, FATAL: 0"
+    }
+  ],
+  "templates": {
+    "javascript": "function main() {\n    let n = parseInt(readline());\n    // Write your solution here\n}\nmain();\n"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": 20,
+  "title": "String Arithmetic Calculator",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "20 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "javascript",
+  "designated_language_name": "JavaScript (Node.js 20)",
+  "statement": "<p>Given an arithmetic expression string containing non-negative integers and operators <code>'+'</code>, <code>'-'</code>, <code>'*'</code>, evaluate the expression respecting standard operator precedence (multiplication before addition/subtraction). Division and parentheses are not present. Spaces may appear between tokens.</p>",
+  "input_format": "A single line containing the mathematical expression.",
+  "output_format": "Output a single integer: the evaluated result.",
+  "constraints": "1 <= length of expression <= 10^5",
+  "sample_input": "3 + 2 * 2 - 5",
+  "sample_output": "2",
+  "hidden_tests": [
+    {
+      "input": "10 * 10 * 10",
+      "expected_output": "1000"
+    },
+    {
+      "input": "100 - 50 + 25",
+      "expected_output": "75"
+    }
+  ],
+  "templates": {
+    "javascript": "function main() {\n    // Evaluate string arithmetic\n}\nmain();\n"
+  }
+}

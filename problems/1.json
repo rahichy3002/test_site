@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "title": "Kenji's CSV Parser",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "1 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "cpp",
+  "designated_language_name": "C++ (C++20)",
+  "statement": "<p>Kenji is building a robust CSV data importer for his financial analytics engine. In standard CSV, fields are separated by commas. However, if a field contains commas or quotes, the entire field is surrounded by double quotes. Inside a quoted field, a literal quote is represented by two consecutive double quotes (<code>\"\"</code>).</p><p>Given <code>N</code> lines of CSV records, parse each record into its individual fields and output the number of fields followed by each field enclosed in brackets <code>[...]</code>.</p>",
+  "input_format": "The first line contains an integer N (1 <= N <= 100). The next N lines each contain a single CSV line string.",
+  "output_format": "For each record, output the count of fields followed by each field enclosed in brackets [field].",
+  "constraints": "1 <= N <= 100\n1 <= length of each line <= 1000",
+  "sample_input": "2\napple,banana,cherry\n\"She said, \"\"hello!\"\"\",123,\"foo,bar\"",
+  "sample_output": "3 [apple] [banana] [cherry]\n3 [She said, \"hello!\"] [123] [foo,bar]",
+  "hidden_tests": [
+    {
+      "input": "1\n\"\",single,\"two,parts\",end",
+      "expected_output": "4 [] [single] [two,parts] [end]"
+    },
+    {
+      "input": "2\nsimple\na,,b",
+      "expected_output": "1 [simple]\n3 [a] [] [b]"
+    }
+  ],
+  "templates": {
+    "cpp": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\n\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Your CSV parser code here\n    return 0;\n}\n"
+  }
+}

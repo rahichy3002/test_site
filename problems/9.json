@@ -1,0 +1,29 @@
+{
+  "id": 9,
+  "title": "Sliding Window Max-Min Difference",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "9 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "javascript",
+  "designated_language_name": "JavaScript (Node.js 20)",
+  "statement": "<p>Given an array of <code>N</code> positive integers and a window size <code>K</code>, slide the window across the array from left to right. For each window of size <code>K</code>, compute <code>max(window) - min(window)</code> and print the results separated by spaces.</p>",
+  "input_format": "First line: N K. Second line: N positive integers.",
+  "output_format": "Print N - K + 1 space-separated integers representing the difference for each window.",
+  "constraints": "1 <= K <= N <= 1000\n1 <= A[i] <= 10^6",
+  "sample_input": "7 3\n10 5 2 7 8 7 12",
+  "sample_output": "8 5 6 1 5",
+  "hidden_tests": [
+    {
+      "input": "3 1\n5 10 15",
+      "expected_output": "0 0 0"
+    },
+    {
+      "input": "4 4\n1 2 3 4",
+      "expected_output": "3"
+    }
+  ],
+  "templates": {
+    "javascript": "function main() {\n    // Sliding window calculation\n}\nmain();\n"
+  }
+}

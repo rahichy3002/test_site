@@ -1,0 +1,29 @@
+{
+  "id": 16,
+  "title": "Subnet Mask & Network Address",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "16 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "c",
+  "designated_language_name": "C (C17)",
+  "statement": "<p>Given an IPv4 address and a prefix length (CIDR notation, e.g. <code>192.168.1.50/24</code>), compute the Network Address and the Broadcast Address in standard dotted-decimal notation.</p>",
+  "input_format": "A single string in the format A.B.C.D/M where 0 <= A,B,C,D <= 255 and 1 <= M <= 32.",
+  "output_format": "Print two lines:\nNetwork: A.B.C.D\nBroadcast: A.B.C.D",
+  "constraints": "Valid IPv4 address string.",
+  "sample_input": "192.168.1.135/26",
+  "sample_output": "Network: 192.168.1.128\nBroadcast: 192.168.1.191",
+  "hidden_tests": [
+    {
+      "input": "10.0.0.1/8",
+      "expected_output": "Network: 10.0.0.0\nBroadcast: 10.255.255.255"
+    },
+    {
+      "input": "172.16.5.10/30",
+      "expected_output": "Network: 172.16.5.8\nBroadcast: 172.16.5.11"
+    }
+  ],
+  "templates": {
+    "c": "#include <stdio.h>\n#include <stdint.h>\n\nint main() {\n    // Compute subnet\n    return 0;\n}\n"
+  }
+}

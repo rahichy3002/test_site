@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  judge-server:
+    build: .
+    container_name: progsity_judge_server
+    ports:
+      - "5500:5500"
+    environment:
+      - PORT=5500
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 512M

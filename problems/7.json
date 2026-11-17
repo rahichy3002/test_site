@@ -1,0 +1,29 @@
+{
+  "id": 7,
+  "title": "Anagram Grouping & Canonical Sorting",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "7 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "cpp",
+  "designated_language_name": "C++ (C++20)",
+  "statement": "<p>Given an array of <code>N</code> lowercase strings, group the anagrams together. Sort each group lexicographically, and then sort all groups by the first word in each group. Output each group on a new line separated by spaces.</p>",
+  "input_format": "The first line contains N. The next line contains N space-separated strings.",
+  "output_format": "Print each group of anagrams on a new line.",
+  "constraints": "1 <= N <= 1000\n1 <= length of each word <= 50",
+  "sample_input": "6\neat tea tan ate nat bat",
+  "sample_output": "ate eat tea\nbat\nnat tan",
+  "hidden_tests": [
+    {
+      "input": "1\nsolo",
+      "expected_output": "solo"
+    },
+    {
+      "input": "4\na b a b",
+      "expected_output": "a a\nb b"
+    }
+  ],
+  "templates": {
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <map>\nusing namespace std;\n\nint main() {\n    // Group anagrams\n    return 0;\n}\n"
+  }
+}

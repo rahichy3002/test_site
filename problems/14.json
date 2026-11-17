@@ -1,0 +1,29 @@
+{
+  "id": 14,
+  "title": "Longest Palindromic Chunk Decomposition",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "14 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "python",
+  "designated_language_name": "Python 3 (Python 3.12)",
+  "statement": "<p>Given a string <code>S</code>, find the maximum number of chunks <code>K</code> such that <code>S = A[1] + A[2] + ... + A[K]</code> where <code>A[i] == A[K - i + 1]</code> for all valid <code>1 <= i <= K</code>.</p>",
+  "input_format": "A single line containing the string S.",
+  "output_format": "Output the maximum number of chunks K.",
+  "constraints": "1 <= length of S <= 1000",
+  "sample_input": "ghiabcdefhelloadamhelloabcghi",
+  "sample_output": "5",
+  "hidden_tests": [
+    {
+      "input": "merchant",
+      "expected_output": "1"
+    },
+    {
+      "input": "antaprezatepnan",
+      "expected_output": "3"
+    }
+  ],
+  "templates": {
+    "python": "import sys\n\ndef main():\n    # Palindromic chunk decomposition\n    pass\n\nif __name__ == '__main__':\n    main()\n"
+  }
+}

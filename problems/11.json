@@ -1,0 +1,29 @@
+{
+  "id": 11,
+  "title": "Next Greater Element Circular",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "11 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "cpp",
+  "designated_language_name": "C++ (C++20)",
+  "statement": "<p>Given a circular integer array <code>A</code> of size <code>N</code>, find the next greater number for every element. If no greater number exists, output <code>-1</code> for that number.</p>",
+  "input_format": "First line: N. Second line: N space-separated integers.",
+  "output_format": "Print N space-separated integers representing the next greater element for each index.",
+  "constraints": "1 <= N <= 10^5\n-10^9 <= A[i] <= 10^9",
+  "sample_input": "3\n1 2 1",
+  "sample_output": "2 -1 2",
+  "hidden_tests": [
+    {
+      "input": "4\n4 3 2 1",
+      "expected_output": "-1 4 4 4"
+    },
+    {
+      "input": "1\n5",
+      "expected_output": "-1"
+    }
+  ],
+  "templates": {
+    "cpp": "#include <iostream>\n#include <vector>\n#include <stack>\nusing namespace std;\n\nint main() {\n    // Next greater element\n    return 0;\n}\n"
+  }
+}

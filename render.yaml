@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: progsity-exam-judge
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5500

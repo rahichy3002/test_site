@@ -1,0 +1,29 @@
+{
+  "id": 12,
+  "title": "Interval Overlap Condenser",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "12 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "javascript",
+  "designated_language_name": "JavaScript (Node.js 20)",
+  "statement": "<p>Given a collection of <code>N</code> intervals <code>[start, end]</code>, merge all overlapping intervals and return the condensed intervals sorted by start time.</p>",
+  "input_format": "The first line contains N. The next N lines contain two integers start end.",
+  "output_format": "For each merged interval, print start end on a new line.",
+  "constraints": "1 <= N <= 1000\n0 <= start <= end <= 10^6",
+  "sample_input": "4\n1 3\n2 6\n8 10\n15 18",
+  "sample_output": "1 6\n8 10\n15 18",
+  "hidden_tests": [
+    {
+      "input": "2\n1 4\n4 5",
+      "expected_output": "1 5"
+    },
+    {
+      "input": "1\n5 10",
+      "expected_output": "5 10"
+    }
+  ],
+  "templates": {
+    "javascript": "function main() {\n    // Merge overlapping intervals\n}\nmain();\n"
+  }
+}

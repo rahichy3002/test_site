@@ -1,0 +1,29 @@
+{
+  "id": 8,
+  "title": "Run-Length Token Encoder",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "8 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "c",
+  "designated_language_name": "C (C17)",
+  "statement": "<p>Implement Run-Length Encoding (RLE) on a sequence of uppercase characters. For consecutive runs of identical characters, output the character followed by the count (e.g. <code>AAABBBCC</code> becomes <code>A3B3C2</code>). Single characters should still include count 1 (e.g. <code>A1</code>).</p>",
+  "input_format": "A single line containing an uppercase string S.",
+  "output_format": "The run-length encoded string.",
+  "constraints": "1 <= length of S <= 1000",
+  "sample_input": "AABBBCCCCD",
+  "sample_output": "A2B3C4D1",
+  "hidden_tests": [
+    {
+      "input": "Z",
+      "expected_output": "Z1"
+    },
+    {
+      "input": "ABCDE",
+      "expected_output": "A1B1C1D1E1"
+    }
+  ],
+  "templates": {
+    "c": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    // Encode RLE\n    return 0;\n}\n"
+  }
+}

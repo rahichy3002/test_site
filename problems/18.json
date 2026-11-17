@@ -1,0 +1,29 @@
+{
+  "id": 18,
+  "title": "0/1 Knapsack with Attribute Weights",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "18 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "python",
+  "designated_language_name": "Python 3 (Python 3.12)",
+  "statement": "<p>You have a knapsack of capacity <code>W</code> and <code>N</code> items. Each item has a weight <code>w[i]</code> and value <code>v[i]</code>. Determine the maximum total value of items that can fit inside the knapsack without exceeding capacity <code>W</code>.</p>",
+  "input_format": "First line: N W. Next N lines: w[i] v[i].",
+  "output_format": "Print a single integer: the maximum achievable value.",
+  "constraints": "1 <= N <= 100\n1 <= W <= 1000\n1 <= w[i], v[i] <= 1000",
+  "sample_input": "3 50\n10 60\n20 100\n30 120",
+  "sample_output": "220",
+  "hidden_tests": [
+    {
+      "input": "1 10\n15 100",
+      "expected_output": "0"
+    },
+    {
+      "input": "4 7\n1 1\n3 4\n4 5\n5 7",
+      "expected_output": "9"
+    }
+  ],
+  "templates": {
+    "python": "import sys\n\ndef main():\n    # 0/1 Knapsack DP\n    pass\n\nif __name__ == '__main__':\n    main()\n"
+  }
+}

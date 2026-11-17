@@ -1,0 +1,29 @@
+{
+  "id": 10,
+  "title": "Matrix Spiral Transposition",
+  "exam_title": "TEST Lab Exam",
+  "problem_index": "10 / 20",
+  "time_limit": "2s",
+  "memory_limit": "256 MB",
+  "locked_language": "python",
+  "designated_language_name": "Python 3 (Python 3.12)",
+  "statement": "<p>Given an <code>R x C</code> matrix of integers, traverse the elements in clockwise spiral order starting from top-left. Output the spiral sequence on a single line separated by spaces.</p>",
+  "input_format": "First line: R C. Next R lines: C integers each.",
+  "output_format": "A single line containing the spiral traversal elements separated by spaces.",
+  "constraints": "1 <= R, C <= 100",
+  "sample_input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+  "sample_output": "1 2 3 6 9 8 7 4 5",
+  "hidden_tests": [
+    {
+      "input": "1 4\n10 20 30 40",
+      "expected_output": "10 20 30 40"
+    },
+    {
+      "input": "3 1\n5\n6\n7",
+      "expected_output": "5 6 7"
+    }
+  ],
+  "templates": {
+    "python": "import sys\n\ndef main():\n    # Spiral matrix\n    pass\n\nif __name__ == '__main__':\n    main()\n"
+  }
+}
