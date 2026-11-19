@@ -564,8 +564,10 @@ def execute_sandboxed(
             "tle": False
         }
 
-    # Tier 2: Create Ephemeral Isolated Working Directory
-    sandbox_dir = tempfile.mkdtemp(prefix="tw_sandbox_")
+    # Tier 2: Create Ephemeral Isolated Working Directory (confined locally, zero OS temp bleed)
+    sandbox_base = Path(__file__).resolve().parent / ".sandbox_tmp"
+    sandbox_base.mkdir(parents=True, exist_ok=True)
+    sandbox_dir = tempfile.mkdtemp(prefix="tw_sandbox_", dir=str(sandbox_base))
     sandbox_path = Path(sandbox_dir)
 
     try:
